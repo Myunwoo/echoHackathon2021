@@ -1,0 +1,22 @@
+@import "variables.css";
+
+.energy__component{
+    width:150px;
+    height:150px;
+    border-radius: 75px;
+    background-color: var(--component-background);
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+
+.energy__component--title{
+    color:white;
+    font-size:20px;
+}
+
+.energy__component--subtitle{
+    color:white;
+    font-size:17px;
+}

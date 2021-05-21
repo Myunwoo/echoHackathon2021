@@ -1,0 +1,36 @@
+ul {
+    all:unset;
+}
+
+.header-bar{
+    position:sticky;
+    top:0px;
+    width:100%;
+    z-index:99;
+}
+
+.header-bar__list{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    background-color: #4e5b69;
+}
+
+.header-bar__list__item{
+    padding: 15px;
+    cursor: pointer;
+}
+
+.header-bar__list__item:first-child{
+    background-color: #04abac;
+}
+
+.header-bar__list__item:hover{
+    background-color: #293339;
+}
+
+.header-bar__list__item a{
+    text-align: center;
+    text-decoration: none;
+    color: #e1ffff;
+}

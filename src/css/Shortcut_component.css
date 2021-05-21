@@ -1,0 +1,53 @@
+.shortcut__component{
+    background-color: #36373c;
+    width:300px;
+    height:120px;
+    border-radius: 13px;
+    display:flex;
+    position:relative;
+}
+
+.shortcut__component:hover{
+    background-color: #3e3f43;
+}
+
+.shortcut__component__column:first-child{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.shortcut__component__column:nth-child(2){
+    flex:3;
+    display:flex;
+}
+
+.shortcut__component__column:nth-child(2) span{
+    color:white;
+}
+
+.shortcut__icon{
+    color:white;
+}
+
+.shortcut__component--title{
+    color:white;
+    margin: 0px;
+    margin-top:40px;
+    margin-bottom:5px;
+    font-size:24px;
+}
+
+.tag{
+    animation: tagAnimationOn 0.5s linear forwards;
+}
+
+@keyframes tagAnimationOn{
+    from{
+        color:white;
+    }
+    to{
+        color:#e67e22;
+    }
+}
