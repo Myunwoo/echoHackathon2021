@@ -1,14 +1,17 @@
 @import "variables.css";
 
 .energy__component{
-    width:150px;
-    height:150px;
-    border-radius: 75px;
+    width:200px;
+    height:200px;
+    border-radius: 100px;
     background-color: var(--component-background);
     display:flex;
     flex-direction: column;
     justify-content:center;
     align-items:center;
+    margin:10px;
+    border-style: solid;
+    border-color: #2ecc71;
 }
 
 .energy__component--title{

@@ -1,10 +1,11 @@
 .shortcut__component{
     background-color: #36373c;
-    width:300px;
-    height:120px;
+    width:180px;
+    height:80px;
     border-radius: 13px;
     display:flex;
     position:relative;
+    margin:5px;
 }
 
 .shortcut__component:hover{
@@ -21,6 +22,7 @@
 .shortcut__component__column:nth-child(2){
     flex:3;
     display:flex;
+    align-items:center;
 }
 
 .shortcut__component__column:nth-child(2) span{
@@ -34,13 +36,12 @@
 .shortcut__component--title{
     color:white;
     margin: 0px;
-    margin-top:40px;
     margin-bottom:5px;
-    font-size:24px;
+    font-size:20px;
 }
 
 .tag{
-    animation: tagAnimationOn 0.5s linear forwards;
+    animation: tagAnimationOn 0.2s linear forwards;
 }
 
 @keyframes tagAnimationOn{

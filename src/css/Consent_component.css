@@ -5,6 +5,7 @@
     border-radius: 13px;
     display:flex;
     position:relative;
+    margin:5px;
 }
 
 .consent__component:hover{

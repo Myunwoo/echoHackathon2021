@@ -10,14 +10,18 @@ import "./css/Main_page.css";
 class Main_page extends React.Component{
     state={
         shortcuts:[
-            {id:1, title:"mode1", target_compos:[1,2,3], target_modes:["a","a","b"]},
-            {id:2, title:"mode2", target_compos:[1,2,3], target_modes:["b","b","c"]},
-            {id:3, title:"mode3", target_compos:[1,2,3], target_modes:["c","a","b"]}
+            {id:1, title:"출근", target_compos:[1,2,3], target_modes:["a","a","b"]},
+            {id:2, title:"퇴근", target_compos:[1,2,3], target_modes:["b","b","c"]},
+            {id:3, title:"안방 독서", target_compos:[1,2,3], target_modes:["c","a","b"]},
+            {id:4, title:"거실 TV시청", target_compos:[1,2,3], target_modes:["c","a","b"]}
         ],
         components:[
-            {id:1, title:"compo1", always_mode:true, autoshut_mode:false, setting_mode:false, power_consumption:50},
-            {id:2, title:"compo2", always_mode:false, autoshut_mode:true, setting_mode:false, power_consumption:100},
-            {id:3, title:"compo3", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:100}
+            {id:1, title:"휘센 에어컨", always_mode:true, autoshut_mode:false, setting_mode:false, power_consumption:50},
+            {id:2, title:"선풍기", always_mode:false, autoshut_mode:true, setting_mode:false, power_consumption:100},
+            {id:3, title:"컴퓨터", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:100},
+            {id:4, title:"핸드폰 충전기", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:100},
+            {id:5, title:"LG TV", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:100},
+            {id:6, title:"삼성 건조기", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:100}
         ]
     }
 
@@ -102,6 +106,7 @@ class Main_page extends React.Component{
                             ))}
                         </div>    
                     </div>
+                    <div className="main_divider"></div>
                     <div className="main__section__column">
                         <div className="show__section">
                             <EnergyShow_component components={components}/>

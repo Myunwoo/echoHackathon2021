@@ -13,7 +13,7 @@ ul {
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    background-color: #4e5b69;
+    background-color: #202020;
 }
 
 .header-bar__list__item{
@@ -22,7 +22,7 @@ ul {
 }
 
 .header-bar__list__item:first-child{
-    background-color: #04abac;
+    background-color: #e74c3c;
 }
 
 .header-bar__list__item:hover{
@@ -32,5 +32,5 @@ ul {
 .header-bar__list__item a{
     text-align: center;
     text-decoration: none;
-    color: #e1ffff;
+    color: white;
 }

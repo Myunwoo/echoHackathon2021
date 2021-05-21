@@ -44,7 +44,7 @@ class Shortcut_component extends React.Component{
             <div className="shortcut__component" onClick={() => this.shortcutClick()} onMouseOut={() => this.mouseOut()}>
                 <div className="shortcut__component__column">
                     <span className={"shortcut__icon" + (isOn ? " tag" : "")}>
-                        <FontAwesomeIcon icon={faBookmark} className="fa-3x"/>
+                        <FontAwesomeIcon icon={faBookmark} className="fa-2x"/>
                     </span>
                 </div>
                 <div className="shortcut__component__column">
