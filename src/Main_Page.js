@@ -16,12 +16,12 @@ class Main_page extends React.Component{
             {id:4, title:"거실 TV시청", target_compos:[1,2,3], target_modes:["c","a","b"]}
         ],
         components:[
-            {id:1, title:"휘센 에어컨", always_mode:true, autoshut_mode:false, setting_mode:false, power_consumption:50},
-            {id:2, title:"선풍기", always_mode:false, autoshut_mode:true, setting_mode:false, power_consumption:100},
-            {id:3, title:"컴퓨터", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:100},
-            {id:4, title:"핸드폰 충전기", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:100},
-            {id:5, title:"LG TV", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:100},
-            {id:6, title:"삼성 건조기", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:100}
+            {id:1, title:"에어컨", always_mode:true, autoshut_mode:false, setting_mode:false, power_consumption:1},
+            {id:2, title:"세탁기", always_mode:false, autoshut_mode:true, setting_mode:false, power_consumption:1},
+            {id:3, title:"공기 청정기", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:1},
+            {id:4, title:"전자레인지", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:1},
+            {id:5, title:"온풍기", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:1},
+            {id:6, title:"제습기", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:1}
         ]
     }
 

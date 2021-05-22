@@ -49,7 +49,7 @@ class Consent_component extends React.Component{
             eps=0;
         }
         const currentText = this.state.shower_text;
-        this.setState({shower_text: currentText+eps});
+        this.setState({shower_text:currentText+eps});
     }
 
     componentDidMount(){

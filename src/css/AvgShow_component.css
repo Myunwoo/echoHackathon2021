@@ -1,0 +1,34 @@
+.avg__component{
+    width:150px;
+    height:150px;
+    border-radius: 75px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--component-background);
+    border:solid 3px;
+    margin:15px;
+}
+
+.avg__component--title{
+    color:white;
+    font-size: 20px;
+}
+
+.avg__component--subtitle{
+    color:white;
+    font-size:12px;
+}
+
+.boder_color_lightning{
+    border-color:var(--lightning);
+}
+
+.border_color_setting{
+    border-color:var(--setting);
+}
+
+.data__section__column:first-child{
+    display:flex;
+}

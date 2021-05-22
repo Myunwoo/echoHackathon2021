@@ -3,9 +3,10 @@ import React from "react";
 import Header_bar from './components/Header_bar';
 import "./css/Map_page.css";
 import geo from "./geo.json";
-import EnergyShow_component from './components/EnergyShow_component';
-import GasShow_component from './components/GasShow_component';
-import MoneyShow_component from './components/MoneyShow_component';
+import AvgShow_component from './components/AvgEnergy_component';
+import axios from 'axios';
+import cities from './cities.json';
+import avgs from './avgs.json';
 
 var areas = [];
 
@@ -21,8 +22,28 @@ function makeAreas(){
 }
 
 class Map_Page extends React.Component{
-    state={
+    constructor(props){
+        super(props);
+        this.state = {
+            cityNames:[],
+            cityAvgs:[],
+            cityHouseCounts:[],
+            onShowName:"",
+            onShowAvg:"",
+            onShowCount:""
+        }
+        for(var i=0;i<cities.data.length;i++){
+            this.state.cityNames.push(cities.data[i].codeNm);
+        }
 
+        for(var i=0;i<avgs.length;i++){
+            this.state.cityAvgs.push(0);
+            this.state.cityHouseCounts.push(0);
+            for(var j=0;j<avgs[i].data.length;j++){
+                this.state.cityAvgs[i] += avgs[i].data[j].houseCnt;
+                this.state.cityHouseCounts[i] += avgs[i].data[j].powerUsage;
+            }
+        }
     }
 
     drawPolygons = (area,map) => {
@@ -95,7 +116,14 @@ class Map_Page extends React.Component{
                 <div className="map__section">
                     <div id="Mymap"></div>
                     <div className="data__section">
-                        
+                        <div className="data__section__column">
+                            <AvgShow_component showData={""}/>
+                            <AvgShow_component showData={""}/>
+                            <AvgShow_component showData={""}/>
+                        </div>
+                        <div className="data__section__column">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
