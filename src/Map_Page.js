@@ -98,7 +98,7 @@ class Map_Page extends React.Component{
                 };
 
                 let map = new window.kakao.maps.Map(container, options);
-                map.setDraggable(false);
+                map.setDraggable(true);
 
                 // 지도에 영역데이터를 폴리곤으로 표시합니다 
                 for (var i = 0, len = areas.length; i < len; i++) {
