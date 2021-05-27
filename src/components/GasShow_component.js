@@ -17,7 +17,9 @@ class GasShow_component extends React.Component{
     updateGasText = () => {
         const gps = this.calcGps();
         const currentGas = this.state.totalGas;
-        this.setState({totalGas: currentGas+gps});
+        const showGas = (Number(gps) + Number(currentGas)).toFixed(3);
+
+        this.setState({totalGas: String(showGas)});
     }
 
     componentDidMount(){

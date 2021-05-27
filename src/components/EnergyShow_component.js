@@ -28,7 +28,8 @@ class EnergyShow_component extends React.Component{
     updateEnergyText = () => {
         const eps = this.calcEps();
         const currentEnergy = this.state.totalEnergy;
-        this.setState({totalEnergy: currentEnergy+eps});
+        const showEnergy = (Number(eps) + Number(currentEnergy)).toFixed(2);
+        this.setState({totalEnergy: showEnergy});
     }
 
     componentDidMount(){

@@ -8,7 +8,7 @@ import avgs from './avgs.json';
 import centers from './center.json';
 
 var markers = [];
-
+const GAS_FOR_SEC = 0.45;
 
 class Map_Page extends React.Component{
     constructor(props){
@@ -17,9 +17,11 @@ class Map_Page extends React.Component{
             cityNames:[],
             cityAvgs:[],
             cityHouseCounts:[],
+            cityBills: [],
             onShowName:"",
             onShowAvg:"",
-            onShowCount:""
+            onShowCount:"",
+            onShowBill:""
         }
     }
 
@@ -64,14 +66,31 @@ class Map_Page extends React.Component{
     }
 
     makeClickListener = (name) => {
+        const func = this.updateAvgShowCompos;
         return function(){
-            console.log(name);
+            func(name);
         };
+    }
+
+    updateAvgShowCompos = (name) => {
+        const thisState = this.state;
+        for(var i=0;i<thisState.cityNames.length;i++){
+            if(name === thisState.cityNames[i]){
+                this.state.onShowName = thisState.cityNames[i];
+                this.state.onShowBill = thisState.cityBills[i];
+                this.state.onShowAvg = thisState.cityAvgs[i];
+                this.state.onShowCount = thisState.cityHouseCounts[i];
+                break;
+            }
+        }
+        this.forceUpdate();
     }
 
     initCities = () => {
         for(var i=0;i<cities.data.length;i++){
-            this.state.cityNames.push(cities.data[i].codeNm);
+            if(cities.data[i].codeNm != '세종특별자치시'){
+                this.state.cityNames.push(cities.data[i].codeNm);
+            }        
         }
     }
 
@@ -79,9 +98,11 @@ class Map_Page extends React.Component{
         for(var i=0;i<avgs.length;i++){
             this.state.cityAvgs.push(0);
             this.state.cityHouseCounts.push(0);
+            this.state.cityBills.push(0);
             for(var j=0;j<avgs[i].data.length;j++){
-                this.state.cityAvgs[i] += avgs[i].data[j].houseCnt;
-                this.state.cityHouseCounts[i] += avgs[i].data[j].powerUsage;
+                this.state.cityAvgs[i] += (avgs[i].data[j].powerUsage / avgs[i].data.length);
+                this.state.cityHouseCounts[i] += avgs[i].data[j].houseCnt;
+                this.state.cityBills[i] += avgs[i].data[j].bill / avgs[i].data.length;
             }
         }
     }
@@ -114,6 +135,9 @@ class Map_Page extends React.Component{
 
     render(){
         const {location, history} = this.props;
+        const {onShowName, onShowAvg, onShowCount, onShowBill} = this.state;
+        const onShowCO2 = (this.state.onShowAvg * GAS_FOR_SEC).toFixed(3);
+
         return(
             <div>
                 <Header_bar location={location} history={history}/>
@@ -121,9 +145,9 @@ class Map_Page extends React.Component{
                     <div id="Mymap"></div>
                     <div className="data__section">
                         <div className="data__section__column">
-                            <AvgShow_component showData={""}/>
-                            <AvgShow_component showData={""}/>
-                            <AvgShow_component showData={""}/>
+                            <AvgShow_component key={"khw"} showName={"khw"} showAvg={Number(onShowAvg)}/>
+                            <AvgShow_component key={"co2"} showName={"co2"} showAvg={Number(onShowCO2)}/>
+                            <AvgShow_component key={"won"} showName={"won"} showAvg={Number(onShowBill)}/>
                         </div>
                         <div className="data__section__column">
                             
