@@ -2,24 +2,13 @@
 import React from "react";
 import Header_bar from './components/Header_bar';
 import "./css/Map_page.css";
-import geo from "./geo.json";
 import AvgShow_component from './components/AvgEnergy_component';
-import axios from 'axios';
 import cities from './cities.json';
 import avgs from './avgs.json';
+import centers from './center.json';
 
-var areas = [];
+var markers = [];
 
-function makeAreas(){
-    for(var i=0;i<geo.features.length;i++){
-        areas.push({name:geo.features[i].properties.CTP_KOR_NM, path:[]});
-        for(var j=0;j<geo.features[i].geometry.coordinates.length;j++){
-            for(var k=0;k<geo.features[i].geometry.coordinates[j].length;k++){
-                areas[i].path.push(new kakao.maps.LatLng(geo.features[i].geometry.coordinates[j][k][1], geo.features[i].geometry.coordinates[j][k][0]));
-            }
-        }
-    }
-}
 
 class Map_Page extends React.Component{
     constructor(props){
@@ -32,10 +21,61 @@ class Map_Page extends React.Component{
             onShowAvg:"",
             onShowCount:""
         }
+    }
+
+    makeMarkers = (map) => {
+        for(var i=0;i<centers.length;i++){
+            markers.push({content:'<div>'+centers[i].name+'</div>'
+                ,position:new kakao.maps.LatLng(centers[i].center[0],centers[i].center[1])
+                ,name:centers[i].name});
+        }
+    
+        for (var i = 0; i < markers.length; i ++) {
+            // 마커를 생성합니다
+            var marker = new kakao.maps.Marker({
+                map: map, // 마커를 표시할 지도
+                position: markers[i].position // 마커의 위치
+            });
+        
+            // 마커에 표시할 인포윈도우를 생성합니다 
+            var infowindow = new kakao.maps.InfoWindow({
+                content: markers[i].content // 인포윈도우에 표시할 내용
+            });
+        
+            // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+            // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+            // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+            kakao.maps.event.addListener(marker, 'mouseover', this.makeOverListener(map, marker, infowindow));
+            kakao.maps.event.addListener(marker, 'mouseout', this.makeOutListener(infowindow));
+            kakao.maps.event.addListener(marker, 'click', this.makeClickListener(markers[i].name));
+        }
+    }
+
+    makeOverListener = (map, marker, infowindow) => {
+        return function() {
+            infowindow.open(map, marker);
+        };
+    }
+
+    makeOutListener = (infowindow) => {
+        return function() {
+            infowindow.close();
+        };
+    }
+
+    makeClickListener = (name) => {
+        return function(){
+            console.log(name);
+        };
+    }
+
+    initCities = () => {
         for(var i=0;i<cities.data.length;i++){
             this.state.cityNames.push(cities.data[i].codeNm);
         }
+    }
 
+    initAvgs = () => {
         for(var i=0;i<avgs.length;i++){
             this.state.cityAvgs.push(0);
             this.state.cityHouseCounts.push(0);
@@ -46,41 +86,6 @@ class Map_Page extends React.Component{
         }
     }
 
-    drawPolygons = (area,map) => {
-        // 다각형을 생성합니다 
-        var polygon = new kakao.maps.Polygon({
-            map: map, // 다각형을 표시할 지도 객체
-            path: area.path,
-            strokeWeight: 2,
-            strokeColor: '#004c80',
-            strokeOpacity: 0.8,
-            fillColor: '#fff',
-            fillOpacity: 0.7 
-        });
-
-        // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다 
-        // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
-        kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
-            polygon.setOptions({fillColor: '#09f'});
-        });
-
-        // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다 
-        kakao.maps.event.addListener(polygon, 'mousemove', function(mouseEvent) {
-            
-        });
-
-        // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
-        // 커스텀 오버레이를 지도에서 제거합니다 
-        kakao.maps.event.addListener(polygon, 'mouseout', function() {
-            polygon.setOptions({fillColor: '#fff'});
-        }); 
-
-        // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다 
-        kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
-            
-        });
-    }
-
     componentDidMount(){
         const script = document.createElement("script");
         script.async = true;
@@ -89,7 +94,6 @@ class Map_Page extends React.Component{
 
         script.onload = () => {
             kakao.maps.load(() => {
-                makeAreas();
 
                 let container = document.getElementById("Mymap");
                 let options = {
@@ -100,12 +104,12 @@ class Map_Page extends React.Component{
                 let map = new window.kakao.maps.Map(container, options);
                 map.setDraggable(true);
 
-                // 지도에 영역데이터를 폴리곤으로 표시합니다 
-                for (var i = 0, len = areas.length; i < len; i++) {
-                    this.drawPolygons(areas[i],map);
-                }
+                this.makeMarkers(map);
             });
         };
+
+        this.initCities();
+        this.initAvgs();
     }
 
     render(){

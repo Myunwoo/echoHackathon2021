@@ -25,7 +25,7 @@ class Header_bar extends React.Component{
                             <Link to='/map'>map</Link>
                         </li>
                         <li className="header-bar__list__item">
-                            <Link to='/login'>login</Link>
+                            <Link to='/donate'>donate</Link>
                         </li>
                     </ul>
                 </nav>

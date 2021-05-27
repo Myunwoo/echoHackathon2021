@@ -38,10 +38,6 @@ class Consent_component extends React.Component{
         }
     }
 
-    updateMode = () => {
-        console.log("updateMode!");
-    }
-
     //1초에 한 번 에너지를 계산.
     updateShowerText = () => {
         let eps = this.state.power_consumption;
@@ -57,7 +53,18 @@ class Consent_component extends React.Component{
     }
 
     componentDidUpdate(){
-           
+        if(
+        this.state.always_mode != this.props.always_mode ||
+        this.state.autoshut_mode != this.props.autoshut_mode ||
+        this.state.setting_mode != this.props.setting_mode){
+            this.propsChanged();
+        }
+    }
+
+    propsChanged = () => {
+        this.state.always_mode = this.props.always_mode;
+        this.state.autoshut_mode = this.props.autoshut_mode;
+        this.state.setting_mode = this.props.setting_mode;
     }
 
     render(){

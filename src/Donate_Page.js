@@ -1,7 +1,7 @@
 import React from "react";
 import Header_bar from './components/Header_bar';
 
-class Login_Page extends React.Component{
+class Donate_Page extends React.Component{
     state={
 
     }
@@ -10,10 +10,10 @@ class Login_Page extends React.Component{
         return(
             <div>
                 <Header_bar location={location} history={history}/>
-                로그인 페이지
+                기부 페이지
             </div>
         );
     }
 }
 
-export default Login_Page;
+export default Donate_Page;

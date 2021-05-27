@@ -10,10 +10,10 @@ import "./css/Main_page.css";
 class Main_page extends React.Component{
     state={
         shortcuts:[
-            {id:1, title:"출근", target_compos:[1,2,3], target_modes:["a","a","b"]},
-            {id:2, title:"퇴근", target_compos:[1,2,3], target_modes:["b","b","c"]},
-            {id:3, title:"안방 독서", target_compos:[1,2,3], target_modes:["c","a","b"]},
-            {id:4, title:"거실 TV시청", target_compos:[1,2,3], target_modes:["c","a","b"]}
+            {id:1, title:"출근", target_compos:[1,2,3,4,5,6,7,8], target_modes:["b","b","b","b","b","b","b","b"]},
+            {id:2, title:"다켜", target_compos:[1,2,3,4,5,6,7,8], target_modes:["a","a","a","a","a","a","a","a"]},
+            {id:3, title:"안방 독서", target_compos:[1,2,3,4,5,6,7,8], target_modes:['b','b','a','b','b','b','b','a']},
+            {id:4, title:"거실 TV시청", target_compos:[1,2,3,4,5,6,7,8], target_modes:['b','b','b','b','a','b','a','b']}
         ],
         components:[
             {id:1, title:"에어컨", always_mode:true, autoshut_mode:false, setting_mode:false, power_consumption:1},
@@ -21,12 +21,14 @@ class Main_page extends React.Component{
             {id:3, title:"공기 청정기", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:1},
             {id:4, title:"전자레인지", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:1},
             {id:5, title:"온풍기", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:1},
-            {id:6, title:"제습기", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:1}
+            {id:6, title:"제습기", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:1},
+            {id:7, title:"거실조명", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:1},
+            {id:8, title:"안방조명", always_mode:false, autoshut_mode:false, setting_mode:true, power_consumption:1}
         ]
     }
 
     componentDidMount(){
-        console.log("componentDidMount");
+        
     }
 
     componentModeChange = (id, modes) => {
@@ -39,6 +41,10 @@ class Main_page extends React.Component{
             }
         }
         this.forceUpdate();
+    }
+
+    componentDidUpdate(){
+    
     }
 
     doShortcut = (childState) => {
