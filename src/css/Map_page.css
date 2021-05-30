@@ -1,10 +1,10 @@
 #Mymap{
-    width:35%;
+    width:45%;
     height: 100vh;
 }
 
 .map__section{
-    width:100wh;
+    width:100vw;
     display:flex;
 }
 
