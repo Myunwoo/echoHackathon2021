@@ -1,15 +1,15 @@
 @import "variables.css";
 
 .energy__component{
-    width:200px;
-    height:200px;
-    border-radius: 100px;
+    width:190px;
+    height:190px;
+    border-radius: 95px;
     background-color: var(--component-background);
     display:flex;
     flex-direction: column;
     justify-content:center;
     align-items:center;
-    margin:10px;
+    margin:20px;
     border-style: solid;
     border-color: #2ecc71;
 }

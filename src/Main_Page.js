@@ -117,6 +117,10 @@ class Main_page extends React.Component{
                             <EnergyShow_component components={components}/>
                             <GasShow_component components={components}/>
                             <MoneyShow_component components={components}/>
+                            <div className="show__section--info">
+                                <span>부가가치세, 전력산업기반금을 제외한 값으로</span>
+                                <span>실제 청구되는 전기세와 약간의 차이가 있습니다.</span>
+                            </div>
                         </div>
                     </div>
                 </div>

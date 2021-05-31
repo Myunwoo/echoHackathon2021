@@ -40,7 +40,7 @@ class EnergyShow_component extends React.Component{
         const {totalEnergy} = this.state;
         return(
             <div className="energy__component">
-                <span className="energy__component--title">총 전력 소모량</span>
+                <span className="energy__component--title">누적 전력 소모량</span>
                 <span className="energy__component--subtitle">{totalEnergy+"kWh"}</span>
             </div>
         );

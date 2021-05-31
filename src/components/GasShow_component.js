@@ -41,7 +41,7 @@ class GasShow_component extends React.Component{
         const {totalGas} = this.state;
         return(
             <div className="energy__component">
-                <span className="energy__component--title">총 온실가스 발생량</span>
+                <span className="energy__component--title">누적 온실가스 발생량</span>
                 <span className="energy__component--subtitle">{totalGas+"kgCO2"}</span>
             </div>
         );

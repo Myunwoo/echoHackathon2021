@@ -141,6 +141,9 @@ class Map_Page extends React.Component{
                 <div className="map__section">
                     <div id="Mymap"></div>
                     <div className="data__section">
+                        <div className="data__section__header">
+                            <span>{"2020년 11월 기준, "+onShowName+"의"}</span>
+                        </div>
                         <div className="data__section__column">
                             <AvgShow_component key={"khw"} showName={"khw"} showAvg={Number(onShowAvg)}/>
                             <AvgShow_component key={"co2"} showName={"co2"} showAvg={Number(onShowCO2)}/>

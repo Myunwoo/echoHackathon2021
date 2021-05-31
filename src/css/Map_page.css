@@ -16,3 +16,22 @@
     align-items:center;
     padding:0px;
 }
+
+.data__section__header{
+    width: 300px;
+    height: 70px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    background-color: var(--component-background);
+    margin-top:20px;
+    font-size:20px;
+    border: 3px solid;
+    border-radius: 8px;
+    border-color: black;
+}
+
+.data__section__column{
+    display: flex;
+}
