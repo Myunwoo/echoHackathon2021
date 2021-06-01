@@ -29,13 +29,14 @@
   bottom: 60px;
   left: 100vw;
   width: 450px;
-  height: 200px;
+  height: 70px;
   border-radius: 2px;
-  background-color: white;
+  background-color: var(--component-background);
   box-shadow: 5px 5px 5px 3px black;
   margin-right: 50px;
   display:flex;
   flex-direction: column;
+  color:white;
 }
 
 .tag__highlight{
@@ -43,8 +44,8 @@
   top:5px;
   left: 3px;
   width:4px;
-  height: 190px;
-  background-color: var(--leaf);
+  height: 60px;
+  background-color: var(--lightning);
 }
 
 .tag__title{
@@ -70,4 +71,10 @@
   display:flex;
   justify-content: center;
   align-items: center;
+}
+
+.carousel__item img{
+  width:100vw;
+  height:100vh;
+  object-fit:contain;
 }

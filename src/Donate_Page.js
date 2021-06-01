@@ -5,15 +5,15 @@ import "./css/Donate_Page.css";
 let index = 0;
 
 const tagTitles = [
-    "온실가스 주범 석탄발전소 건설중단에 함께해주세요!",
+    "석탄 발전 멈춰!",
     "타이틀 2",
-    "타이틀 3"
+    "연탄에서 보일러로"
 ];
 
 const tagSlogans = [
-    "2050년까지 탄소중립을 선언한 현 정부, 그런데...",
+    "온실가스 주범 석탄 발전소 건설 중단",
     "슬로건 2",
-    "슬로건 3"
+    "국내 15만 가구 아직 연탄 생활"
 ];
 
 class Donate_Page extends React.Component{
@@ -48,13 +48,13 @@ class Donate_Page extends React.Component{
                 <div className="carousel-wrapper">
                     <div className="carousel">
                         <div className="carousel__item">
-                            <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5090%2F2019%2F11%2F25%2F0001808815_001_20191125182601035.png&type=sc960_832" alt="" />
+                            <img src="https://images.pexels.com/photos/929385/pexels-photo-929385.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
                         </div>
                         <div className="carousel__item">
-                            <img src="https://happybean-phinf.pstatic.net/20201117_182/1605588703341AR9Jq_PNG/1.png?type=w720" alt="" />
+                            <img src="https://cleanvehiclerebate.org/sites/default/files/styles/full/public/images/reduced_environmental_impacts.jpg?itok=dWibkCNN" alt="" />
                         </div>
                         <div className="carousel__item">
-                            <img src="https://images.unsplash.com/photo-1603052227529-e8ed43c7af99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" />
+                            <img src="http://www.energydaily.co.kr/news/photo/202010/112990_68799_3842.jpg" alt="" />
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,6 @@ class Donate_Page extends React.Component{
                     <div className="tag__highlight"></div>
                     <span className="tag__title"></span>
                     <span className="tag__slogan"></span>
-                    <button className="tag__btn">기부하기</button>
                 </div>
             </div>
         );
