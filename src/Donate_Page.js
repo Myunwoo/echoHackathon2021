@@ -48,10 +48,10 @@ class Donate_Page extends React.Component{
                 <div className="carousel-wrapper">
                     <div className="carousel">
                         <div className="carousel__item">
-                            <img src="https://happybean-phinf.pstatic.net/20201117_182/1605588703341AR9Jq_PNG/1.png?type=w720" alt="" />
+                            <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5090%2F2019%2F11%2F25%2F0001808815_001_20191125182601035.png&type=sc960_832" alt="" />
                         </div>
                         <div className="carousel__item">
-                            <img src="https://images.unsplash.com/photo-1583434987437-1b9dcbe44c9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" />
+                            <img src="https://happybean-phinf.pstatic.net/20201117_182/1605588703341AR9Jq_PNG/1.png?type=w720" alt="" />
                         </div>
                         <div className="carousel__item">
                             <img src="https://images.unsplash.com/photo-1603052227529-e8ed43c7af99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" />

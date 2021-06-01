@@ -8,7 +8,6 @@
     align-items: center;
     background-color: var(--component-background);
     border:solid 3px;
-    margin:10px 20px;
 }
 
 .avg__component--title{
@@ -27,8 +26,4 @@
 
 .border_color_setting{
     border-color:var(--setting);
-}
-
-.data__section__column:first-child{
-    display:flex;
 }

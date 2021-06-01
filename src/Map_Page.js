@@ -6,9 +6,16 @@ import AvgShow_component from './components/AvgEnergy_component';
 import cities from './cities.json';
 import avgs from './avgs.json';
 import centers from './center.json';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTree } from "@fortawesome/free-solid-svg-icons";
+import { faIndustry } from "@fortawesome/free-solid-svg-icons";
 
 var markers = [];
 const GAS_FOR_SEC = 0.45;
+const GOOD_EXAMPLE = 0;
+const BAD_EXAMPLE = 1;
+const GOOD_AVG = 150;
+const BAD_AVG = 300;
 
 class Map_Page extends React.Component{
     constructor(props){
@@ -21,7 +28,10 @@ class Map_Page extends React.Component{
             onShowName:"",
             onShowAvg:"",
             onShowCount:"",
-            onShowBill:""
+            onShowBill:"",
+            onShowGrade:"",
+            onShowTree:"",
+            onShowReducedCo2:""
         }
     }
 
@@ -130,27 +140,57 @@ class Map_Page extends React.Component{
         this.initAvgs();
     }
 
+    showExample = (type) => {
+        if(this.state.onShowName===""){
+            alert("지역을 먼저 선택해 주세요.");
+            return;
+        }
+        if(type === GOOD_EXAMPLE){
+            //이게 Co2 발생량임, 단위:톤
+            const totalCo2 = ((Number(this.state.onShowAvg) - GOOD_AVG) * Number(this.state.onShowCount) * 0.000424).toFixed(0);
+            const totalTree = (totalCo2 * 2 / 3).toFixed(0);
+            this.setState({onShowGrade: "A+",onShowReducedCo2:totalCo2,onShowTree:totalTree});
+        }else if(type === BAD_EXAMPLE){
+            const totalCo2 = ((BAD_AVG - Number(this.state.onShowAvg)) * Number(this.state.onShowCount) * 0.000424).toFixed(0);
+            const totalTree = (totalCo2 * 2 / 3).toFixed(0);
+            this.setState({onShowGrade: "C",onShowReducedCo2:totalCo2,onShowTree:totalTree});
+        }
+    }
+
     render(){
         const {location, history} = this.props;
-        const {onShowName, onShowAvg, onShowCount, onShowBill} = this.state;
+        const {onShowName, onShowAvg, onShowCount, onShowBill, onShowGrade, onShowReducedCo2, onShowTree} = this.state;
         const onShowCO2 = (this.state.onShowAvg * GAS_FOR_SEC).toFixed(3);
-
+        console.log(onShowGrade);
         return(
             <div>
                 <Header_bar location={location} history={history}/>
                 <div className="map__section">
                     <div id="Mymap"></div>
-                    <div className="data__section">
-                        <div className="data__section__header">
-                            <span>{"2020년 11월 기준, "+onShowName+"의"}</span>
+                    <div className="data__section">            
+                        <div className="data__section__column">
+                            <AvgShow_component key={"khw"} showName={"khw"} showAvg={Number(onShowAvg)} />
+                            <AvgShow_component key={"co2"} showName={"co2"} showAvg={Number(onShowCO2)} />
+                            <AvgShow_component key={"won"} showName={"won"} showAvg={Number(onShowBill)} />
                         </div>
                         <div className="data__section__column">
-                            <AvgShow_component key={"khw"} showName={"khw"} showAvg={Number(onShowAvg)}/>
-                            <AvgShow_component key={"co2"} showName={"co2"} showAvg={Number(onShowCO2)}/>
-                            <AvgShow_component key={"won"} showName={"won"} showAvg={Number(onShowBill)}/>
+                            <span>{"2020년 11월 기준 "+onShowName}</span>
                         </div>
                         <div className="data__section__column">
-                            
+                            <span className="data__section__btn btn--grn" onClick={() => this.showExample(GOOD_EXAMPLE)}>우수사례 보기!</span>
+                            <span className="data__section__btn btn--red" onClick={() => this.showExample(BAD_EXAMPLE)}>과소비사례 보기!</span>
+                        </div>
+                        <div className="data__section__result">
+                            <span id="firstline">당신의 등급은 <b>{onShowGrade}</b> 에요</span>
+                            <span id="secondline"><b>{onShowName}</b> 의 모든 사람이 비슷하게 에너지를 소비한다면</span>
+                            <span id="thirdline"><b>나무{onShowTree}그루</b> {onShowGrade==="C" ? "뽑" : "심"}는 것과 같아질 거에요</span>
+                            <span id="fourthline"><b>Co2 {onShowReducedCo2}t</b> 을 {onShowGrade==="C" ? "더 만드" : "없애"}는 것이죠!</span>
+                            <FontAwesomeIcon id="treeone" icon={faTree} className="fa-2x greentree"/>
+                            <FontAwesomeIcon id="treetwo" icon={faTree} className="fa-2x greentree"/>
+                            <FontAwesomeIcon id="treethr" icon={faTree} className="fa-2x greentree"/>
+                            <FontAwesomeIcon id="treefour" icon={faTree} className="fa-2x greentree"/>
+                            <FontAwesomeIcon id="treefive" icon={faTree} className="fa-2x greentree"/>
+                            <FontAwesomeIcon id="industry" icon={faIndustry} className="fa-2x"/>
                         </div>
                     </div>
                 </div>

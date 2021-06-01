@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
 #Mymap{
     width:45%;
     height: 100vh;
@@ -9,12 +12,34 @@
 }
 
 .data__section{
-    width:50%;
+    width:55%;
     height:100vh;
     display: flex;
     flex-direction: column;
     align-items:center;
     padding:0px;
+}
+
+.data__section__column{
+    width:100%;
+    display:flex;
+    justify-content: space-evenly;
+    margin:5px;
+}
+
+.data__section__column:first-child{
+    margin-top:15px;
+}
+
+.data__section__column:nth-child(2){
+    justify-content: flex-end;
+    padding-right:50px;
+    color:white;
+}
+
+.data__section__column:nth-child(3){
+    justify-content: flex-end;
+    padding-right:50px;
 }
 
 .data__section__header{
@@ -32,6 +57,143 @@
     border-color: black;
 }
 
-.data__section__column{
-    display: flex;
+.data__section__btn{
+    width:120px;
+    height: 30px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    margin: 2px;
+    color:white;
+}
+
+.data__section__btn:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.btn--grn{
+    background-color: var(--leaf);
+}
+
+.btn--red{
+    background-color: #eb4d4b;
+}
+
+.data__section__result{
+    font-family: 'Nanum Gothic', sans-serif;
+    color:white;
+    width: 680px;
+    height: 500px;
+    margin-top:25px;
+    position:relative;
+}
+
+#firstline{
+    position:absolute;
+    top:0px;
+    left:0px;
+    font-size:45px;
+}
+
+#firstline b{
+    all:unset;
+    font-family: 'Gugi', cursive;
+    font-size: 70px;
+    color: #2e86de;
+}
+
+#secondline{
+    position:absolute;
+    top:110px;
+    left:0px;
+    font-size: 25px;
+}
+
+#secondline b{
+    all:unset;
+    font-family: 'Gugi', cursive;
+    font-size: 30px;
+}
+
+#thirdline{
+    position:absolute;
+    top:200px;
+    left:0px;
+    font-size: 25px;
+}
+
+#thirdline b{
+    all:unset;
+    font-family: 'Gugi', cursive;
+    font-size: 65px;
+    color:var(--leaf);
+}
+
+#fourthline{
+    position:absolute;
+    top:400px;
+    left:0px;
+    font-size: 25px;
+}
+
+#fourthline b{
+    all:unset;
+    font-family: 'Gugi', cursive;
+    font-size: 65px;
+    color:#f9ca24;
+}
+
+#treeone{
+    position:absolute;
+    top:160px;
+    left:30px;
+    font-size:110px;
+    opacity:0.15;
+}
+
+#treetwo{
+    position:absolute;
+    top:200px;
+    left:80px;
+    font-size:110px;
+    opacity:0.15;
+}
+
+#treethr{
+    position:absolute;
+    top:160px;
+    left:130px;
+    font-size:110px;
+    opacity:0.15;
+}
+
+#treefour{
+    position:absolute;
+    top:200px;
+    left:180px;
+    font-size:110px;
+    opacity:0.15;
+}
+
+#treefive{
+    position:absolute;
+    top:160px;
+    left:230px;
+    font-size:110px;
+    opacity:0.15;
+}
+
+.greentree{
+    color:var(--leaf);
+}
+
+#industry{
+    position:absolute;
+    top: 350px;
+    left: 100px;
+    opacity: 0.15;
+    font-size:150px;
+    color: #f9ca24;
 }
