@@ -145,15 +145,30 @@ class Map_Page extends React.Component{
             alert("지역을 먼저 선택해 주세요.");
             return;
         }
+        const tree1 = document.querySelector('#treeone');
+        const tree2 = document.querySelector('#treetwo');
+        const tree3 = document.querySelector('#treethr');
+        const tree4 = document.querySelector('#treefour');
+        const tree5 = document.querySelector('#treefive');
         if(type === GOOD_EXAMPLE){
             //이게 Co2 발생량임, 단위:톤
             const totalCo2 = ((Number(this.state.onShowAvg) - GOOD_AVG) * Number(this.state.onShowCount) * 0.000424).toFixed(0);
             const totalTree = (totalCo2 * 2 / 3).toFixed(0);
             this.setState({onShowGrade: "A+",onShowReducedCo2:totalCo2,onShowTree:totalTree});
+            tree1.classList.remove('fadeout');
+            tree2.classList.remove('fadeout');
+            tree3.classList.remove('fadeout');
+            tree4.classList.remove('fadeout');
+            tree5.classList.remove('fadeout');
         }else if(type === BAD_EXAMPLE){
             const totalCo2 = ((BAD_AVG - Number(this.state.onShowAvg)) * Number(this.state.onShowCount) * 0.000424).toFixed(0);
             const totalTree = (totalCo2 * 2 / 3).toFixed(0);
             this.setState({onShowGrade: "C",onShowReducedCo2:totalCo2,onShowTree:totalTree});
+            tree1.classList.add('fadeout');
+            tree2.classList.add('fadeout');
+            tree3.classList.add('fadeout');
+            tree4.classList.add('fadeout');
+            tree5.classList.add('fadeout');
         }
     }
 
@@ -161,7 +176,7 @@ class Map_Page extends React.Component{
         const {location, history} = this.props;
         const {onShowName, onShowAvg, onShowCount, onShowBill, onShowGrade, onShowReducedCo2, onShowTree} = this.state;
         const onShowCO2 = (this.state.onShowAvg * GAS_FOR_SEC).toFixed(3);
-        console.log(onShowGrade);
+        
         return(
             <div>
                 <Header_bar location={location} history={history}/>

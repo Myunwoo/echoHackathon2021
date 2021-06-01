@@ -197,3 +197,17 @@
     font-size:150px;
     color: #f9ca24;
 }
+
+.fadeout{
+    animation: fadeout 1s;
+    animation-fill-mode:ete;
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
