@@ -18,6 +18,7 @@ class App extends React.Component{
             <Route path='/main' component={Main_Page} />
             <Route path='/map' component={Map_Page} />
             <Route path='/donate' component={Donate_Page} />
+            <Route path='' component={Main_Page} />
             <Route render={() => <div className='error'>error</div>}/>
           </Switch>
         </Router>
