@@ -117,7 +117,7 @@ class Map_Page extends React.Component{
     componentDidMount(){
         const script = document.createElement("script");
         script.async = true;
-        script.src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=0da581988551d6b0dadd40525bcc864f&autoload=false";
+        script.src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=5d8275a6464fd811d365d45e8ba97c76&autoload=false";
         document.head.appendChild(script);
 
         script.onload = () => {
