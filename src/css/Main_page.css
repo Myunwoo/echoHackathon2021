@@ -10,6 +10,7 @@ body{
 
 .main__section{
     display:flex;
+    background-color: red;
 }
 
 .main__section__column{
