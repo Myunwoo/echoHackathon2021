@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/echoHackathon2021/static/css/main.175518f8.chunk.css",
+    "main.css": "/echoHackathon2021/static/css/main.3c1b4183.chunk.css",
     "main.js": "/echoHackathon2021/static/js/main.7c91e7a5.chunk.js",
     "main.js.map": "/echoHackathon2021/static/js/main.7c91e7a5.chunk.js.map",
     "runtime-main.js": "/echoHackathon2021/static/js/runtime-main.ca7fe2f0.js",
@@ -8,13 +8,13 @@
     "static/js/2.c205eeaf.chunk.js": "/echoHackathon2021/static/js/2.c205eeaf.chunk.js",
     "static/js/2.c205eeaf.chunk.js.map": "/echoHackathon2021/static/js/2.c205eeaf.chunk.js.map",
     "index.html": "/echoHackathon2021/index.html",
-    "static/css/main.175518f8.chunk.css.map": "/echoHackathon2021/static/css/main.175518f8.chunk.css.map",
+    "static/css/main.3c1b4183.chunk.css.map": "/echoHackathon2021/static/css/main.3c1b4183.chunk.css.map",
     "static/js/2.c205eeaf.chunk.js.LICENSE.txt": "/echoHackathon2021/static/js/2.c205eeaf.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ca7fe2f0.js",
     "static/js/2.c205eeaf.chunk.js",
-    "static/css/main.175518f8.chunk.css",
+    "static/css/main.3c1b4183.chunk.css",
     "static/js/main.7c91e7a5.chunk.js"
   ]
 }
